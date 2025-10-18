@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="IMAGE/profile1.png">
+    <title>Rishi Kumar | Professional Portfolio</title>
+
+    <!-- Font Awesome for Icons (Latest Version) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Sophisticated Google Fonts: Montserrat for main text, Poppins for headings -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* --- CSS Variables & General Styles --- */
+        :root {
+            --primary-color: #00bcd4;
+            /* Accent color: Vibrant Teal */
+            --secondary-color: #f0f0f0;
+            /* Light text color */
+            --dark-background: #121212;
+            /* Deep black for background */
+            --darker-background: #1e1e1e;
+            /* Slightly lighter black for cards */
+            --text-color: #e0e0e0;
+            /* Main text color */
+            --card-hover: rgba(0, 188, 212, 0.15);
+            /* Light hover tint */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* --- PREMIUM BACKGROUND PATTERN --- */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+
+            /* Deep dark gradient base */
+            background: linear-gradient(135deg, #0a0a0a, #121212);
+            /* Subtle geometric dot pattern overlaid */
+            background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.04) 1px, transparent 0);
+            background-size: 20px 20px;
+            background-attachment: fixed;
+            /* Keeps the grid fixed while scrolling for a layered effect */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--secondary-color);
+        }
+
+        h2 {
+            font-size: 2.8em;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+            animation: slideInDown 1s ease-out;
+        }
+
+        /* Subtle Underline Animation for Headings */
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease-out;
+        }
+
+        h2:hover::after {
+            width: 120px;
+        }
+
+        /* --- Header & Hero Section --- */
+        header {
+            background-color: var(--dark-background);
+            padding: 80px 0 60px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid var(--primary-color);
+            box-shadow: 0 0 25px rgba(0, 188, 212, 0.6);
+            margin-bottom: 20px;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .profile-info h1 {
+            font-size: 4.5em;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+            text-shadow: 0 0 15px rgba(0, 188, 212, 0.7);
+        }
+
+        .profile-info p {
+            font-size: 1.3em;
+            font-weight: 400;
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+
+        .social-media a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 2em;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-media a:hover {
+            color: var(--primary-color);
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        /* --- Navigation --- */
+        nav {
+            background-color: var(--darker-background);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+            animation: fadeInDown 1s ease-in-out 0.5s backwards;
+        }
+
+        nav ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 25px;
+        }
+
+        nav ul li a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        /* Nav link hover/active effect */
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Section Styles: Crucial for Pattern Layering --- */
+        section {
+            padding: 100px 0;
+            /* Use a slightly transparent background to layer over the pattern */
+            background-color: rgba(18, 18, 18, 0.95);
+            border-bottom: 1px solid var(--darker-background);
+        }
+
+        #about p {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1em;
+            min-height: 100px;
+            /* Ensure space for the typing text */
+        }
+
+        /* --- Typewriter Specific CSS --- */
+        .typewriter-cursor {
+            border-right: 2px solid var(--primary-color);
+            animation: blink-cursor 0.75s step-end infinite;
+        }
+
+        @keyframes blink-cursor {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: var(--primary-color);
+            }
+        }
+
+        /* --- Skills Section --- */
+        #skills ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 0;
+        }
+
+        #skills ul li {
+            background-color: var(--darker-background);
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            border: 1px solid #333;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+            cursor: default;
+        }
+
+        #skills ul li:hover {
+            background-color: var(--card-hover);
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        #skills ul li i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        /* --- Projects & Certificates Section (Unified Style) --- */
+        .project-table {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .project-list {
+            flex-basis: 320px;
+            background-color: var(--darker-background);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .project-list-item {
+            padding: 18px 20px;
+            margin: 8px 0;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-left: 5px solid transparent;
+            transition: background 0.3s ease, border-left 0.3s ease, color 0.3s ease;
+        }
+
+        .project-list-item:hover,
+        .project-list-item.active {
+            background: var(--card-hover);
+            border-left: 5px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .project-display {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            background: #000;
+            border: 5px solid var(--primary-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 35px rgba(0, 188, 212, 0.4);
+        }
+
+        .project-display img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: scale(1.05);
+        }
+
+        .project-display img.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* --- Contact Section --- */
+        #contact-form {
+            max-width: 600px;
+            margin: 40px auto 0;
+            padding: 40px;
+            background-color: var(--darker-background);
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.8);
+            text-align: left;
+        }
+
+        #contact-form label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        #contact-form input[type="text"],
+        #contact-form input[type="email"],
+        #contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #333;
+            background-color: #222;
+            color: var(--secondary-color);
+            border-radius: 5px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #contact-form input:focus,
+        #contact-form textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(0, 188, 212, 0.8);
+            outline: none;
+        }
+
+        #contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        #contact-form button {
+            background-color: var(--primary-color);
+            color: var(--dark-background);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.4);
+        }
+
+        #contact-form button:hover {
+            background-color: #008c99;
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 188, 212, 0.6);
+        }
+
+        /* --- Footer Styles --- */
+        footer {
+            background-color: var(--darker-background);
+            color: var(--text-color);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9em;
+        }
+
+        /* --- Media Queries for Responsiveness --- */
+        @media (max-width: 900px) {
+            .project-table {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project-list {
+                flex-basis: 100%;
+                width: 90%;
+                margin-bottom: 30px;
+            }
+
+            .project-display {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .profile-info h1 {
+                font-size: 3em;
+            }
+
+            .profile-info p {
+                font-size: 1em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            #skills ul li {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+        }
+
+        /* --- Animations (Refined) --- */
+
+        /* General Fade-in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Elements from top */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Elements from bottom (Used by Intersection Observer) */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Heading Downwards Slide */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Visibility on Scroll (managed by JS) */
+        .animated-section {
+            opacity: 0;
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            transform: translateY(30px);
+        }
+
+        .animated-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER/HERO SECTION -->
+    <header>
+        <div class="container">
+            <div class="profile-container">
+                <div class="profile-photo">
+                    <!-- Using local image path with fallback -->
+                    <img src="IMAGE/profile1.png" alt="Rishi's Profile Picture" id="profile-pic"
+                        onerror="this.onerror=null;this.src='https://placehold.co/180x180/00bcd4/121212?text=R'">
+                </div>
+                <div class="profile-info">
+                    <h1>Rishi Kumar</h1>
+                    <p>Full Stack Developer | B.TECH CS-IT 2023-27</p>
+                    <div class="social-media">
+                        <a href="https://www.instagram.com/rishi_119_/#" target="_blank" title="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/rishikum119/" target="_blank" title="Facebook"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://wa.link/y2lr9t" target="_blank" title="WhatsApp"><i
+                                class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.linkedin.com/in/rishi-kumar-8a4a68267" target="_blank" title="LinkedIn"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Rishi-Kumar-119" target="_blank" title="GitHub"><i
+                                class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ABOUT SECTION - Target for Typewriter Effect -->
+    <section id="about" class="animated-section">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                <!-- Placeholder for typewriter effect -->
+                <span id="typewriter-text" class="typewriter-cursor"></span>
+            </p>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="animated-section">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <ul>
+                <li><i class="fab fa-html5"></i> HTML5 & CSS3</li>
+                <li><i class="fab fa-js-square"></i> JavaScript (ES6+)</li>
+                <li><i class="fab fa-react"></i> React</li>
+                <li><i class="fab fa-node-js"></i> Node.js & Express</li>
+                <li><i class="fas fa-database"></i> MongoDB / PostgreSQL</li>
+                <li><i class="fas fa-magic"></i> UI/UX Design Principles</li>
+                <li><i class="fas fa-mobile-alt"></i> Responsive Web Design</li>
+                <li><i class="fab fa-git-alt"></i> Git & GitHub</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="animated-section">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="project-table" data-display-type="project">
+                <div class="project-list">
+                    <div class="project-list-item active" data-id="project1">Modern E-commerce Platform</div>
+                    <div class="project-list-item" data-id="project2">Real-Time Chat Application</div>
+                    <div class="project-list-item" data-id="project3">AI-Powered Portfolio Generator</div>
+                </div>
+                <div class="project-display">
+                    <!-- Note: Images should be replaced with actual project screenshots. -->
+                    <img src="project1.jpg" alt="Project 1: E-commerce" id="project1" class="active"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e1e1e/00bcd4?text=E-commerce+Platform'">
+                    <img src="project2.jpg" alt="Project 2: Chat App" id="project2"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e1e1e/00bcd4?text=Real-Time+Chat+App'">
+                    <img src="project3.jpg" alt="Project 3: AI Tool" id="project3"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e1e1e/00bcd4?text=AI+Portfolio+Tool'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATES SECTION -->
+    <section id="certificates" class="animated-section">
+        <div class="container">
+            <h2>Certifications</h2>
+            <div class="project-table" data-display-type="certificate">
+                <div class="project-list">
+                    <div class="project-list-item active" data-id="certificate1">Full Stack Development (Coursera)</div>
+                    <div class="project-list-item" data-id="certificate2">Advanced React Hooks (Udemy)</div>
+                    <div class="project-list-item" data-id="certificate3">UX Design Principles (Google)</div>
+                </div>
+                <div class="project-display">
+                    <!-- Note: Images should be replaced with actual certificate images. -->
+                    <img src="certificate1.jpg" alt="Certificate 1: Full Stack" id="certificate1" class="active"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e1e1e/00bcd4?text=Full+Stack+Cert'">
+                    <img src="certificate2.jpg" alt="Certificate 2: React" id="certificate2"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e1e1e/00bcd4?text=React+Hooks+Cert'">
+                    <img src="certificate3.jpg" alt="Certificate 3: UX Design" id="certificate3"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e1e1e/00bcd4?text=UX+Design+Cert'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="animated-section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Rishi Kr. All rights reserved. Designed with precision and passion.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY & ANIMATIONS -->
+    <script>
+        // --- Typewriter Text Content ---
+        const aboutTextLines = [
+            "Hello! I'm **Rishi Kumar**, a passionate and detail-oriented **Full Stack Developer** currently pursuing",
+            "my B.Tech in CS-IT. I specialize in turning creative concepts into seamless, functional web experiences.",
+            "My work focuses on clean code, modern design, and delivering exceptional user interfaces with",
+            "cutting-edge technologies. I thrive in environments that challenge me to integrate technology and design for real-world impact."
+        ];
+
+        // --- Typewriter Effect Implementation ---
+        function typewriterEffect(elementId, lines, speed = 40) {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+
+            // Remove the blinking cursor class initially
+            element.classList.remove('typewriter-cursor');
+
+            let lineIndex = 0;
+            let charIndex = 0;
+
+            function type() {
+                if (lineIndex < lines.length) {
+                    const currentLine = lines[lineIndex];
+
+                    if (charIndex < currentLine.length) {
+                        let char = currentLine.charAt(charIndex);
+
+                        // Handle Markdown (bold text) to ensure correct styling is preserved
+                        if (char === '*' && currentLine.substring(charIndex, charIndex + 2) === '**') {
+                            element.innerHTML += '<b>';
+                            charIndex += 2;
+                        } else if (char === '*' && currentLine.substring(charIndex - 2, charIndex) === '**') {
+                            element.innerHTML = element.innerHTML.slice(0, -1) + '</b>';
+                            charIndex++;
+                        } else {
+                            element.innerHTML += char;
+                            charIndex++;
+                        }
+
+                        // Wait for the next character
+                        setTimeout(type, speed);
+                    } else {
+                        // End of line, start a new line
+                        element.innerHTML += '<br>';
+                        lineIndex++;
+                        charIndex = 0;
+
+                        // Slow down the transition between lines
+                        setTimeout(type, speed * 15);
+                    }
+                } else {
+                    // Animation complete, add final cursor
+                    element.classList.add('typewriter-cursor');
+                }
+            }
+
+            // Start the animation
+            type();
+        }
+
+
+        // --- Interactivity: Project/Certificate Image Swap ---
+        function setupDisplay(displayType) {
+            const container = document.querySelector(`[data-display-type="${displayType}"]`);
+            if (!container) return;
+
+            const items = container.querySelectorAll('.project-list-item');
+            const images = container.querySelectorAll('.project-display img');
+
+            items.forEach(item => {
+                item.addEventListener('click', () => {
+                    const targetId = item.getAttribute('data-id');
+
+                    // Remove 'active' from all items and images
+                    items.forEach(i => i.classList.remove('active'));
+                    images.forEach(img => img.classList.remove('active'));
+
+                    // Add 'active' to the clicked item
+                    item.classList.add('active');
+
+                    // Find and add 'active' to the corresponding image
+                    const targetImage = document.getElementById(targetId);
+                    if (targetImage) {
+                        targetImage.classList.add('active');
+                    }
+
+                    stopRotation(displayType);
+                });
+            });
+
+            // Set the first item/image as active initially
+            if (items.length > 0 && !container.querySelector('.project-list-item.active')) {
+                items[0].classList.add('active');
+                if (images.length > 0) {
+                    images[0].classList.add('active');
+                }
+            }
+        }
+
+        // --- Animation: Automatic Image Rotation ---
+        const rotationIntervals = {};
+
+        function startRotation(displayType) {
+            const container = document.querySelector(`[data-display-type="${displayType}"]`);
+            if (!container) return;
+
+            const items = container.querySelectorAll('.project-list-item');
+            const images = container.querySelectorAll('.project-display img');
+            if (images.length === 0) return;
+
+            const rotate = () => {
+                let currentIndex = Array.from(items).findIndex(i => i.classList.contains('active'));
+
+                if (currentIndex === -1) currentIndex = 0;
+
+                currentIndex = (currentIndex + 1) % images.length;
+
+                items.forEach(i => i.classList.remove('active'));
+                images.forEach(img => img.classList.remove('active'));
+
+                items[currentIndex].classList.add('active');
+                images[currentIndex].classList.add('active');
+            };
+
+            stopRotation(displayType);
+            rotationIntervals[displayType] = setInterval(rotate, 4000);
+
+            container.addEventListener('mouseenter', () => stopRotation(displayType));
+            container.addEventListener('mouseleave', () => {
+                if (!rotationIntervals[displayType]) {
+                    startRotation(displayType);
+                }
+            });
+        }
+
+        function stopRotation(displayType) {
+            if (rotationIntervals[displayType]) {
+                clearInterval(rotationIntervals[displayType]);
+                rotationIntervals[displayType] = null;
+            }
+        }
+
+        // --- Animation: Profile Picture Rotation ---
+        const profileImages = [
+            "IMAGE/profile1.png",
+            "IMAGE/profile2.png",
+            "IMAGE/profile3.png",
+            "IMAGE/profile4.png"
+        ];
+        let currentProfileIndex = 0;
+        const profilePic = document.getElementById('profile-pic');
+
+        function changeProfilePicture() {
+            if (!profilePic || profileImages.length < 2) return;
+
+            profilePic.style.transition = 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out';
+            profilePic.style.opacity = 0;
+            profilePic.style.transform = 'scale(0.9) rotateY(180deg)';
+
+            setTimeout(() => {
+                currentProfileIndex = (currentProfileIndex + 1) % profileImages.length;
+                profilePic.src = profileImages[currentProfileIndex];
+
+                profilePic.style.opacity = 1;
+                profilePic.style.transform = 'scale(1) rotateY(0deg)';
+            }, 500);
+        }
+
+        if (profilePic && profileImages.length > 1) {
+            setInterval(changeProfilePicture, 6000);
+        }
+
+        // --- Animation: Section Visibility on Scroll (Intersection Observer) ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Special action for the About section
+                    if (entry.target.id === 'about') {
+                        typewriterEffect('typewriter-text', aboutTextLines);
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            rootMargin: '0px',
+            threshold: 0.2
+        });
+
+        document.querySelectorAll('.animated-section').forEach(section => {
+            observer.observe(section);
+        });
+
+
+        // --- Form Submission Alert (Replaced with Custom Message Box) ---
+        function showMessageBox(message) {
+            const messageBox = document.createElement('div');
+            messageBox.id = 'custom-message-box';
+            messageBox.style.cssText = `
+                position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                background: var(--darker-background); color: var(--text-color); padding: 25px 40px;
+                border-radius: 10px; box-shadow: 0 0 30px rgba(0, 188, 212, 0.8); z-index: 2000;
+                border: 2px solid var(--primary-color); text-align: center;
+                opacity: 0; transition: opacity 0.5s ease-in-out;
+            `;
+            messageBox.innerHTML = `<p style="font-size:1.2em; font-weight:600;">${message}</p>`;
+
+            document.body.appendChild(messageBox);
+
+            setTimeout(() => messageBox.style.opacity = 1, 10);
+
+            setTimeout(() => {
+                messageBox.style.opacity = 0;
+                setTimeout(() => messageBox.remove(), 500);
+            }, 3000);
+        }
+
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            showMessageBox('Message received! Rishi will be in touch shortly.');
+            this.reset();
+        });
+
+        // --- Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            setupDisplay('project');
+            setupDisplay('certificate');
+            startRotation('project');
+            startRotation('certificate');
+
+            if (profilePic) profilePic.src = profileImages[0];
+        });
+    </script>
+</body>
+
+</html>
